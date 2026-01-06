@@ -1,5 +1,9 @@
 import { useActionState } from "react"
 import { z, ZodError } from "zod"
+import { AxiosError } from "axios"
+
+import { api } from "../services/api"
+import { useAuth } from "../hooks/useAuth"
 
 import { Button } from "../components/Button"
 import { Input } from "../components/Input"
@@ -12,6 +16,8 @@ const signInSchema = z.object({
 export function SignIn() {
   const [state, formAction, isLoading] = useActionState(signIn, null)
 
+  const auth = useAuth()
+
   async function signIn(_: any, formData: FormData) {
     try {
       const data = signInSchema.parse({
@@ -19,10 +25,15 @@ export function SignIn() {
         password: formData.get("password"),
       })
 
-      console.log(data)
+      const response = await api.post("/sessions", data)
+
+      auth.save(response.data)
     } catch (error) {
       if (error instanceof ZodError) {
         return { message: error.issues[0].message }
+      }
+      if (error instanceof AxiosError) {
+        return { message: error.response?.data.message }
       }
 
       return { message: "Não foi possível acessar a conta!" }
