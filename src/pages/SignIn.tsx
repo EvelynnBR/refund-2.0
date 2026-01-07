@@ -2,7 +2,7 @@ import { useActionState } from "react"
 import { z, ZodError } from "zod"
 import { AxiosError } from "axios"
 
-import { api } from "../services/api"
+import { api, BASE_URL } from "../services/api"
 import { useAuth } from "../hooks/useAuth"
 
 import { Button } from "../components/Button"
@@ -67,7 +67,7 @@ export function SignIn() {
       </Button>
 
       <a
-        href="/signup"
+        href={`${BASE_URL}/signup`}
         className="text-sm font-semibold text-gray-100 mt-10 mb-4 text-center hover:text-green-800 transition ease-linear"
       >
         criar contar
