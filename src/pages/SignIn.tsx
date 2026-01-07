@@ -2,7 +2,7 @@ import { useActionState } from "react"
 import { z, ZodError } from "zod"
 import { AxiosError } from "axios"
 
-import { api, BASE_URL } from "../services/api"
+import { api } from "../services/api"
 import { useAuth } from "../hooks/useAuth"
 
 import { Button } from "../components/Button"
