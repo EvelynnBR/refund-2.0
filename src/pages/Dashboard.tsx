@@ -12,6 +12,7 @@ import { Input } from "../components/Input"
 import { Button } from "../components/Button"
 import { RefundItem, type RefundItemProps } from "../components/RefundItem"
 import { Pagination } from "../components/Pagination"
+import { Link } from "react-router-dom"
 
 const PER_PAGE = 5
 
@@ -91,7 +92,9 @@ export function Dashboard() {
 
       <div className="my-6 flex flex-col gap-4 max-h-85.5 overflow-y-scroll">
         {refunds.map((item) => (
-          <RefundItem key={item.id} data={item} href={`/refund/${item.id}`} />
+          <Link to={`/refund/${item.id}`}>
+            <RefundItem key={item.id} data={item} />
+          </Link>
         ))}
       </div>
 
