@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export function NotFound() {
   return (
     <div className=" w-screen h-screen flex flex-col gap-8 justify-center items-center">
@@ -5,12 +7,12 @@ export function NotFound() {
         OPS! Essa página não existe! 😢
       </h1>
 
-      <a
-        href="/"
+      <Link
+        to="/"
         className="text-sm font-semibold text-green-100 text-center hover:text-green-200 transition ease-linear"
       >
         Voltar para o início
-      </a>
+      </Link>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router"
+import { Link } from "react-router-dom"
 import { z, ZodError } from "zod"
 import { AxiosError } from "axios"
 
@@ -60,7 +61,7 @@ export function Refund() {
         category,
         amount: amount.replace(",", "."),
       })
-      
+
       await api.post("/refunds", {
         ...data,
         filename: response.data.filename,
@@ -153,14 +154,14 @@ export function Refund() {
       </div>
 
       {params.id && fileURL ? (
-        <a
-          href={`${BASE_URL}/uploads/${fileURL}`}
+        <Link
+          to={`${BASE_URL}/uploads/${fileURL}`}
           target="_blank"
           className="text-sm text-green-100 font-semibold flex items-center justify-center gap-2 my-6 hover:opacity-70 transition ease-linear"
         >
           <img src={fileSvg} alt="ícone de arquivo" />
           Abrir comprovante
-        </a>
+        </Link>
       ) : (
         <Upload
           filename={file && file.name}

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { z, ZodError } from "zod"
 import { AxiosError } from "axios"
+import { Link } from "react-router-dom"
 import { useNavigate } from "react-router"
 
 import { api } from "../services/api"
@@ -99,12 +100,12 @@ export function SignUp() {
         Cadastrar
       </Button>
 
-      <a
-        href="/"
+      <Link
+        to="/"
         className="text-sm font-semibold text-gray-100 mt-10 mb-4 text-center hover:text-green-800 transition ease-linear"
       >
         já tenho uma conta
-      </a>
+      </Link>
     </form>
   )
 }
