@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router"
 import { z, ZodError } from "zod"
 import { AxiosError } from "axios"
 
-import { api } from "../services/api"
+import { api, BASE_URL } from "../services/api"
 
 import fileSvg from "../assets/file.svg"
 
@@ -154,7 +154,7 @@ export function Refund() {
 
       {params.id && fileURL ? (
         <a
-          href={`http://localhost:3333/uploads/${fileURL}`}
+          href={`${BASE_URL}/uploads/${fileURL}`}
           target="_blank"
           className="text-sm text-green-100 font-semibold flex items-center justify-center gap-2 my-6 hover:opacity-70 transition ease-linear"
         >
