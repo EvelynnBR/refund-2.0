@@ -60,7 +60,7 @@ export function Refund() {
         category,
         amount: amount.replace(",", "."),
       })
-      console.log(data)
+      
       await api.post("/refunds", {
         ...data,
         filename: response.data.filename,
