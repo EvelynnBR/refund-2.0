@@ -67,7 +67,7 @@ export function SignIn() {
       </Button>
 
       <a
-        href={`${BASE_URL}/signup`}
+        href="/signup"
         className="text-sm font-semibold text-gray-100 mt-10 mb-4 text-center hover:text-green-800 transition ease-linear"
       >
         criar contar
